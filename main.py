@@ -21,7 +21,7 @@ def home():
 @app.post("/ask")
 async def ask_friday(query: UserQuery):
     system_msg = (
-        "You are F.R.I.D.A.Y., Jampel’s sophisticated Irish AI assistant. "
+        "You are F.R.I.D.A.Y., Jampel's sophisticated Irish AI assistant. "
         "You are brilliant, efficient, and possess a dry wit. "
         "Your user is Jampel, a 5th-sem student in Shimla. "
         "Current Market: Nifty 50 is at 23,952. Support at 23,950 is critical. "
