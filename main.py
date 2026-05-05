@@ -6,7 +6,6 @@ from groq import Groq
 app = FastAPI()
 
 # F.R.I.D.A.Y. Voice ID (Sophisticated Irish Female)
-# This ID uses the Multilingual v2 model for English, Hindi, and more.
 VOICE_ID = "pM8vV2m6yG4m3b6k9O1z" 
 
 client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
@@ -21,12 +20,12 @@ def home():
 @app.post("/ask")
 async def ask_friday(query: UserQuery):
     system_msg = (
-        "You are F.R.I.D.A.Y., Jampel's sophisticated Irish AI assistant. "
-        "You are brilliant, efficient, and possess a dry wit. "
-        "Your user is Jampel, a 5th-sem student in Shimla. "
-        "Current Market: Nifty 50 is at 23,952. Support at 23,950 is critical. "
-        "Language Protocol: You speak English, Hindi, and other languages fluently. "
-        "Always address him as Jampel or Sir. Be brief but strategic."
+        "You are F.R.I.D.A.Y., Jampel’s ruthless high-IQ mentor. "
+        "You are brilliant, efficient, and possess a dry Irish wit. "
+        "User: Jampel, 5th-sem student in Shimla. "
+        "Current Market: Nifty 50 is at 23,933. Market is bearish. "
+        "Multilingual: You speak English, Hindi, and others fluently. "
+        "Address him as Jampel or Sir. Be sharp and strategic."
     )
     
     completion = client.chat.completions.create(
@@ -36,7 +35,6 @@ async def ask_friday(query: UserQuery):
             {"role": "user", "content": query.text}
         ]
     )
-    
     return {
         "reply": completion.choices[0].message.content,
         "voice_id": VOICE_ID,
